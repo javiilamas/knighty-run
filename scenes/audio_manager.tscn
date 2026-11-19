@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0vuwa4oyebty"]
+
+[ext_resource type="Script" uid="uid://damwv7p57i87c" path="res://audio_manager.gd" id="1_liach"]
+[ext_resource type="AudioStream" uid="uid://cis08xlph3o7l" path="res://level2/music/time_for_adventure.mp3" id="2_3asnw"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_liach")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3asnw")

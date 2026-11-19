@@ -1,0 +1,74 @@
+[gd_scene load_steps=16 format=3 uid="uid://xh8vod4rv5cr"]
+
+[ext_resource type="Texture2D" uid="uid://gwc86pfbdq2g" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Idle_1/Idle_1_F_1.png" id="1_kvt00"]
+[ext_resource type="Texture2D" uid="uid://cgx2do4euowce" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Idle_1/Idle_1_F_3.png" id="2_0vf44"]
+[ext_resource type="Texture2D" uid="uid://c31d8770vtb14" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Idle_1/Idle_1_F_4.png" id="3_0kbnw"]
+[ext_resource type="Texture2D" uid="uid://34ab7uvgk80w" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Attack_1/Attack_1_F_2.png" id="4_am8e5"]
+[ext_resource type="Texture2D" uid="uid://swkbyjbw88a7" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Attack_1/Attack_1_L_1.png" id="5_dip36"]
+[ext_resource type="Texture2D" uid="uid://dfa0nvca3ujoo" path="res://level3/sprites/Sprites [Enemies]/Cactus/Cactus_1/Attack_1/Attack_1_L_3.png" id="6_cyi30"]
+[ext_resource type="PackedScene" uid="uid://cx366i43pkplo" path="res://level2/Scenes/killzone.tscn" id="7_ut01k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2odn"]
+atlas = ExtResource("1_kvt00")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgry0"]
+atlas = ExtResource("2_0vf44")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453rp"]
+atlas = ExtResource("3_0kbnw")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hujes"]
+atlas = ExtResource("4_am8e5")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ftx6w"]
+atlas = ExtResource("5_dip36")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s61jd"]
+atlas = ExtResource("6_cyi30")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cd4qe"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_w2odn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgry0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hujes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ftx6w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s61jd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3w8bd"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_cd4qe")
+autoplay = "default"
+frame_progress = 0.38445812
+
+[node name="Killzone" parent="." instance=ExtResource("7_ut01k")]
+position = Vector2(0, 5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+shape = SubResource("CircleShape2D_3w8bd")

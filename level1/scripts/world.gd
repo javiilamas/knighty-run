@@ -1,0 +1,9 @@
+extends Node2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _physics_process(delta)  :
+	$score/Label.text=str(Global.score)
+func _ready() -> void:
+	audio_stream_player_2d.play()

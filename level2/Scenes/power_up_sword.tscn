@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuyhtrxjtji8k"]
+
+[ext_resource type="Texture2D" uid="uid://dtdht17888v6s" path="res://Assets/Sprites/excalibur_.png" id="1_6d4ls"]
+[ext_resource type="Script" uid="uid://b737js306hrok" path="res://Assets/Scripts/power_up_sword.gd" id="1_gjava"]
+[ext_resource type="AudioStream" uid="uid://bbcwe8phl8734" path="res://Assets/sounds/power_up.wav" id="3_dnbhg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjava"]
+atlas = ExtResource("1_6d4ls")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnbhg"]
+atlas = ExtResource("1_6d4ls")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nti1w"]
+atlas = ExtResource("1_6d4ls")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arnqo"]
+atlas = ExtResource("1_6d4ls")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gxcl7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjava")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnbhg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nti1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arnqo")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6d4ls"]
+size = Vector2(22.020817, 7.778175)
+
+[node name="PowerUpSword" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_gjava")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 0.7853982
+sprite_frames = SubResource("SpriteFrames_gxcl7")
+autoplay = "default"
+frame_progress = 0.09971893
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.7144666, 0.7144666)
+rotation = 2.3561945
+scale = Vector2(0.9999999, 0.9999999)
+shape = SubResource("RectangleShape2D_6d4ls")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dnbhg")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://b1b2fmob3v5p6"]
+
+[ext_resource type="Script" uid="uid://bc0duwsefu3mj" path="res://level3/scripts/staff.gd" id="1_8nwlb"]
+[ext_resource type="Texture2D" uid="uid://bmj6a6nwqbmx" path="res://level3/sprites/camelot_ [version 1.0]/staff_ [merlin].png" id="2_53elu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uj8kd"]
+size = Vector2(8, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlsia"]
+atlas = ExtResource("2_53elu")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbrqb"]
+atlas = ExtResource("2_53elu")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7v87"]
+atlas = ExtResource("2_53elu")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nm0tc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlsia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbrqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7v87")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="staff" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_8nwlb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uj8kd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_nm0tc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

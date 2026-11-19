@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://wiqrrtmxnq6"]
+
+[ext_resource type="FontFile" uid="uid://vr46n0derwc4" path="res://level2/fonts/PixelOperator8-Bold.ttf" id="1_6f5eq"]
+[ext_resource type="Texture2D" uid="uid://uqqt6u7rve6" path="res://level2/Sprites/coin.png" id="2_4wm7v"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_aa0c4"]
+font = ExtResource("1_6f5eq")
+font_size = 24
+font_color = Color(0.88235295, 0.7176471, 0, 1)
+
+[node name="Score" type="CanvasLayer"]
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 42.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 67.0
+text = "0
+"
+label_settings = SubResource("LabelSettings_aa0c4")
+
+[node name="CoinScoreSprite" type="Sprite2D" parent="."]
+position = Vector2(25.000002, 27)
+scale = Vector2(2.4874997, 1.910156)
+texture = ExtResource("2_4wm7v")
+region_enabled = true
+region_rect = Rect2(0, 0, 15, 16)

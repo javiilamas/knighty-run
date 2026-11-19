@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtxti14gm2e1m"]
+
+[ext_resource type="Script" uid="uid://cfqw6ngpe0b5j" path="res://level1/scripts/mainmenu.gd" id="1_a2m8j"]
+[ext_resource type="FontFile" uid="uid://dpcq5gv0oknyd" path="res://level1/sprites/brackeys_platformer_assets/fonts/PixelOperator8-Bold.ttf" id="2_51ulf"]
+[ext_resource type="Texture2D" uid="uid://da50spgdtx224" path="res://level1/sprites/promo.png" id="2_eeaua"]
+[ext_resource type="AudioStream" uid="uid://cbe8khnair1hu" path="res://sprites/music/time_for_adventure.mp3" id="4_3lj0p"]
+
+[node name="Mainmenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_a2m8j")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_right = 1151.0
+offset_bottom = 658.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eeaua")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 401.0
+offset_top = 163.0
+offset_right = 748.0
+offset_bottom = 355.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_51ulf")
+theme_override_font_sizes/font_size = 32
+text = "START GAME"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_51ulf")
+theme_override_font_sizes/font_size = 32
+text = "QUIT"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 36.0
+offset_right = 782.0
+offset_bottom = 134.0
+theme_override_colors/font_color = Color(0.675368, 0.020247271, 0.022709725, 1)
+theme_override_fonts/font = ExtResource("2_51ulf")
+theme_override_font_sizes/font_size = 41
+text = "KNIGHTY RUN"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_3lj0p")
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
